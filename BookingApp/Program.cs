@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.AddDbContext<BookingAppContext>(options =>
 options.UseSqlServer("Server = CVJETKOVICG - LAP; Database = BookingApp; Trusted_Connection = True; Encrypt = False"));
 var app = builder.Build();
