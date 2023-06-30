@@ -1,0 +1,65 @@
+﻿@model IEnumerable<BookingApp.Models.Rezervacije>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Korisnik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Smještaj)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BrojGostiju)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatumRezervacije)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PočetakRezervacije)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KrajRezervacije)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Korisnik.KorisnikId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Smještaj.SmještajId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrojGostiju)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatumRezervacije)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PočetakRezervacije)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KrajRezervacije)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.RezervacijaId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.RezervacijaId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.RezervacijaId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
