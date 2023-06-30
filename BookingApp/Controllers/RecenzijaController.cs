@@ -48,8 +48,8 @@ namespace BookingApp.Controllers
         // GET: Recenzija/Create
         public IActionResult Create()
         {
-            ViewData["KorisnikId"] = new SelectList(_context.Korisnicis, "KorisnikId", "KorisnikId");
-            ViewData["SmještajId"] = new SelectList(_context.Smještajs, "SmještajId", "SmještajId");
+            ViewData["KorisnikId"] = new SelectList(_context.Korisnicis, "KorisnikId", "KorisničkoIme");
+            ViewData["SmještajId"] = new SelectList(_context.Smještajs, "SmještajId", "Naziv");
             return View();
         }
 

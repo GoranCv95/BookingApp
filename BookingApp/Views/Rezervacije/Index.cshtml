@@ -37,10 +37,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Korisnik.KorisnikId)
+                    @Html.DisplayFor(modelItem => item.Korisnik.Ime) @Html.DisplayFor(modelItem => item.Korisnik.Prezime)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Smještaj.SmještajId)
+                @Html.DisplayFor(modelItem => item.Smještaj.Naziv)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.BrojGostiju)

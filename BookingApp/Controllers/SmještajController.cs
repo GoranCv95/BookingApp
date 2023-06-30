@@ -47,7 +47,7 @@ namespace BookingApp.Controllers
         // GET: Smještaj/Create
         public IActionResult Create()
         {
-            ViewData["TipSmještajaId"] = new SelectList(_context.TipSmještajas, "TipSmještajaId", "TipSmještajaId");
+            ViewData["TipSmještajaId"] = new SelectList(_context.TipSmještajas, "TipSmještajaId", "TipSmještaja1");
             return View();
         }
 
