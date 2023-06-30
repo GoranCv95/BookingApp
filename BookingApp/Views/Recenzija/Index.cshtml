@@ -43,9 +43,9 @@
                 @Html.DisplayFor(modelItem => item.Komentar)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.RecenzijaId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.RecenzijaId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.RecenzijaId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.RecenzijaId"> <i class="fa-solid fa-pen-to-square"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.RecenzijaId"> <i class="fa-solid fa-circle-info"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.RecenzijaId"><i class="fa-solid fa-trash"></i></a>
             </td>
         </tr>
 }

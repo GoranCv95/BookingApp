@@ -55,9 +55,9 @@
                 @Html.DisplayFor(modelItem => item.KrajRezervacije)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.RezervacijaId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.RezervacijaId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.RezervacijaId">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.RezervacijaId"> <i class="fa-solid fa-pen-to-square"></i></a> |
+                    <a asp-action="Details" asp-route-id="@item.RezervacijaId"> <i class="fa-solid fa-circle-info"></i></a> |
+                    <a asp-action="Delete" asp-route-id="@item.RezervacijaId"> <i class="fa-solid fa-trash"></i></a>
             </td>
         </tr>
 }

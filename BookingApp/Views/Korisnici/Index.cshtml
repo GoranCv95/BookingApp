@@ -49,9 +49,9 @@
                 @Html.DisplayFor(modelItem => item.BrojTelefona)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.KorisnikId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.KorisnikId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.KorisnikId">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.KorisnikId"> <i class="fa-solid fa-pen-to-square"></i></a> |
+                    <a asp-action="Details" asp-route-id="@item.KorisnikId"> <i class="fa-solid fa-circle-info"></i></a> |
+                    <a asp-action="Delete" asp-route-id="@item.KorisnikId"><i class="fa-solid fa-trash"></i></a>
             </td>
         </tr>
 }
