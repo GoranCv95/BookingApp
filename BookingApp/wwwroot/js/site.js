@@ -9,4 +9,7 @@ $(document).ready(function () {
             url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/sr-SP.json',
         },
     });
+    $('.korisnikSelect').select2();
+    $('.smjestajSelect').select2();
+    $('.tipSmjestaja').select2();
 });

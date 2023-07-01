@@ -14,11 +14,12 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="KorisnikId" class="control-label"></label>
-                <select asp-for="KorisnikId" class ="form-control" asp-items="ViewBag.KorisnikId"></select>
+                <select asp-for="KorisnikId" class ="form-control korisnikSelect" asp-items="ViewBag.KorisnikId"></select>
+                <a href="#" id="dodajKorisnika" class="btn btn-danger my-1" data-bs-toggle="modal" data-bs-target="#exampleModal">Dodaj korisnika</a>
             </div>
             <div class="form-group">
                 <label asp-for="SmještajId" class="control-label"></label>
-                <select asp-for="SmještajId" class ="form-control" asp-items="ViewBag.SmještajId"></select>
+                <select asp-for="SmještajId" class="form-control smjestajSelect" asp-items="ViewBag.SmještajId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="BrojGostiju" class="control-label"></label>
@@ -49,6 +50,51 @@
 
 <div>
     <a asp-action="Index">Back to List</a>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Dodaj korisnika</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                    <form action="/Korisnici/Create" method="post" novalidate="novalidate">
+                        <div class="form-group">
+                            <label class="control-label" for="Ime">Ime</label>
+                            <input class="form-control" type="text" data-val="true" data-val-required="The Ime field is required." id="Ime" name="Ime" value="">
+                            <span class="text-danger field-validation-valid" data-valmsg-for="Ime" data-valmsg-replace="true"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Prezime">Prezime</label>
+                            <input class="form-control" type="text" data-val="true" data-val-required="The Prezime field is required." id="Prezime" name="Prezime" value="">
+                            <span class="text-danger field-validation-valid" data-valmsg-for="Prezime" data-valmsg-replace="true"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Korisni_koIme">Korisničko Ime</label>
+                            <input class="form-control" type="text" data-val="true" data-val-required="The KorisničkoIme field is required." id="Korisni_koIme" name="KorisničkoIme" value="">
+                            <span class="text-danger field-validation-valid" data-valmsg-for="KorisničkoIme" data-valmsg-replace="true"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Email">Email</label>
+                            <input class="form-control" type="text" data-val="true" data-val-required="The Email field is required." id="Email" name="Email" value="">
+                            <span class="text-danger field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="BrojTelefona">BrojTelefona</label>
+                            <input class="form-control" type="text" data-val="true" data-val-required="The BrojTelefona field is required." id="BrojTelefona" name="BrojTelefona" value="">
+                            <span class="text-danger field-validation-valid" data-valmsg-for="BrojTelefona" data-valmsg-replace="true"></span>
+                        </div>
+                    </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Odustani</button>
+                <button type="button" class="btn btn-primary">Sačuvaj</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 @section Scripts {
