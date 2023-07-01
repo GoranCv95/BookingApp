@@ -14,7 +14,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="KorisnikId" class="control-label"></label>
-                <select asp-for="KorisnikId" class ="form-control korisnikSelect" asp-items="ViewBag.KorisnikId"></select>
+                <select asp-for="KorisnikId" class ="form-control korisnikSelect"></select>
                 <a href="#" id="dodajKorisnika" class="btn btn-danger my-1" data-bs-toggle="modal" data-bs-target="#exampleModal">Dodaj korisnika</a>
             </div>
             <div class="form-group">
@@ -61,7 +61,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                    <form action="/Korisnici/Create" method="post" novalidate="novalidate">
+                    <form id="korisnikForma">
                         <div class="form-group">
                             <label class="control-label" for="Ime">Ime</label>
                             <input class="form-control" type="text" data-val="true" data-val-required="The Ime field is required." id="Ime" name="Ime" value="">
@@ -91,12 +91,36 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Odustani</button>
-                <button type="button" class="btn btn-primary">Sačuvaj</button>
+                <button type="submit" id="sacuvaj" class="btn btn-primary">Sačuvaj</button>
             </div>
         </div>
     </div>
 </div>
 
+
+
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        <script>
+            $(document).ready(function () {
+                console.log("Ucitano")
+                $("#sacuvaj").click(function (e) {
+                    console.log();
+                    console.log("submit");
+                    $.ajax({
+                        url: '@Url.Action("Create", "Korisnici")',
+                        type: 'POST',
+                        data: $('#korisnikForma').serialize(),
+                        success: function (response) {
+                            $('#exampleModal').modal('hide');
+                        },
+                        error: function () {
+                            alert("dogodila se greska");
+                        }
+                    })
+                })
+            })
+        </script>
+    }
 }
+

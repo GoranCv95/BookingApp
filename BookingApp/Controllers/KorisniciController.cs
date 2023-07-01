@@ -54,7 +54,7 @@ namespace BookingApp.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("KorisnikId,Ime,Prezime,KorisničkoIme,Email,BrojTelefona")] Korisnici korisnici)
         {
             if (ModelState.IsValid)
@@ -157,6 +157,17 @@ namespace BookingApp.Controllers
         private bool KorisniciExists(int id)
         {
           return (_context.Korisnicis?.Any(e => e.KorisnikId == id)).GetValueOrDefault();
+        }
+
+        public IActionResult DohvatiKorisnike(string term)
+        {
+            var korisnici = _context.Korisnicis.ToList();
+            if (!string.IsNullOrEmpty(term))
+            {
+                korisnici = korisnici.Where(x => x.KorisničkoIme.ToUpper().Contains(term.ToUpper())).ToList();
+            }
+
+            return Json(korisnici);
         }
     }
 }
