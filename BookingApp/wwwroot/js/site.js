@@ -20,10 +20,9 @@ $(document).ready(function () {
             processResults: function (data) {
                 return {
                     results: $.map(data, function (korisnik) {
-                        console.log(korisnik)
                         return {
                             id: korisnik.korisnikId,
-                            text: korisnik.korisničkoIme
+                            text: korisnik.ime + ' ' + korisnik.prezime
                         };
                     })
                 };
