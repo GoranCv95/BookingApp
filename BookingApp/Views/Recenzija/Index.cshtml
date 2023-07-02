@@ -4,50 +4,58 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Korisnik)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Smještaj)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ocjena)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Komentar)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Korisnik.KorisničkoIme)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Smještaj.Naziv)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ocjena)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Komentar)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.RecenzijaId"> <i class="fa-solid fa-pen-to-square"></i></a> |
-                <a asp-action="Details" asp-route-id="@item.RecenzijaId"> <i class="fa-solid fa-circle-info"></i></a> |
-                <a asp-action="Delete" asp-route-id="@item.RecenzijaId"><i class="fa-solid fa-trash"></i></a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="card shadow my-3">
+    <div class="card-header">
+        <div class="d-sm-flex align-items-center justify-content-between">
+            <h6>Recenzija</h6>
+            <a asp-action="Create" class="btn btn-primary">Kreiraj novu</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Korisnik)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Smještaj)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Ocjena)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Komentar)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Korisnik.KorisničkoIme)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Smještaj.Naziv)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ocjena)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Komentar)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.RecenzijaId"> <i class="fa-solid fa-pen-to-square"></i></a> |
+                            <a asp-action="Details" asp-route-id="@item.RecenzijaId"> <i class="fa-solid fa-circle-info"></i></a> |
+                            <a asp-action="Delete" asp-route-id="@item.RecenzijaId"><i class="fa-solid fa-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

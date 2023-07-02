@@ -4,62 +4,69 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Korisnik)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Smještaj)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BrojGostiju)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DatumRezervacije)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PočetakRezervacije)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KrajRezervacije)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                    @Html.DisplayFor(modelItem => item.Korisnik.Ime) @Html.DisplayFor(modelItem => item.Korisnik.Prezime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Smještaj.Naziv)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BrojGostiju)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DatumRezervacije)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PočetakRezervacije)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KrajRezervacije)
-            </td>
-            <td>
-                    <a asp-action="Edit" asp-route-id="@item.RezervacijaId"> <i class="fa-solid fa-pen-to-square"></i></a> |
-                    <a asp-action="Details" asp-route-id="@item.RezervacijaId"> <i class="fa-solid fa-circle-info"></i></a> |
-                    <a asp-action="Delete" asp-route-id="@item.RezervacijaId"> <i class="fa-solid fa-trash"></i></a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="card shadow my-3">
+    <div class="card-header">
+        <div class="d-sm-flex align-items-center justify-content-between">
+            <h6>Rezervacije</h6>
+            <a asp-action="Create" class="btn btn-primary">Kreiraj novu</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Korisnik)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Smještaj)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BrojGostiju)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DatumRezervacije)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PočetakRezervacije)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.KrajRezervacije)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Korisnik.Ime) @Html.DisplayFor(modelItem => item.Korisnik.Prezime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Smještaj.Naziv)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BrojGostiju)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DatumRezervacije)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PočetakRezervacije)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.KrajRezervacije)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.RezervacijaId"> <i class="fa-solid fa-pen-to-square"></i></a> |
+                            <a asp-action="Details" asp-route-id="@item.RezervacijaId"> <i class="fa-solid fa-circle-info"></i></a> |
+                            <a asp-action="Delete" asp-route-id="@item.RezervacijaId"> <i class="fa-solid fa-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -4,32 +4,40 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="card shadow my-3">
+    <div class="card-header">
+        <div class="d-sm-flex align-items-center justify-content-between">
+            <h6>Vrste smještaja</h6>
+            <a asp-action="Create" class="btn btn-primary">Kreiraj novi</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TipSmještaja1)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TipSmještaja1)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.TipSmještajaId"><i class="fa-solid fa-pen-to-square"></i></a> |
+                            <a asp-action="Details" asp-route-id="@item.TipSmještajaId"><i class="fa-solid fa-circle-info"></i></a> |
+                            <a asp-action="Delete" asp-route-id="@item.TipSmještajaId"><i class="fa-solid fa-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TipSmještaja1)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TipSmještaja1)
-            </td>
-            <td>
-                    <a asp-action="Edit" asp-route-id="@item.TipSmještajaId"><i class="fa-solid fa-pen-to-square"></i></a> |
-                    <a asp-action="Details" asp-route-id="@item.TipSmještajaId"><i class="fa-solid fa-circle-info"></i></a> |
-                    <a asp-action="Delete" asp-route-id="@item.TipSmještajaId"><i class="fa-solid fa-trash"></i></a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
