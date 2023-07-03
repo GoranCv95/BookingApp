@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookingApp.Models;
@@ -22,7 +23,7 @@ public partial class BookingAppContext : DbContext
     public virtual DbSet<Rezervacije> Rezervacijes { get; set; }
 
     public virtual DbSet<Smještaj> Smještajs { get; set; }
-
+    [DisplayName("Vrsta smještaja")]
     public virtual DbSet<TipSmještaja> TipSmještajas { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
